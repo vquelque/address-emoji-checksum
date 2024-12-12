@@ -1,20 +1,7 @@
-import { sha256Hash, generateEmojiChecksum } from '../src/index';
+import { generateEmojiChecksum } from '../src/index';
 import { validateAddress } from '../src/validateAddress';
 
 describe('emoji-checksum package', () => {
-  describe('sha256Hash', () => {
-    it('should generate a valid SHA-256 hash for a given string', async () => {
-
-      const input = 'test-hash';
-      const expectedHash =
-        'd6672ee3a93d0d6e3c30bdef89f310799c2f3ab781098a9792040d5541ce3ed3';
-
-      const result = await sha256Hash(input);
-
-      expect(result).toBe(expectedHash);
-    });
-  });
-
   describe('generateEmojiChecksum with validation', () => {
     it('should generate a checksum for a valid Ethereum address', async () => {
       const checksum = await generateEmojiChecksum(

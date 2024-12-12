@@ -1,11 +1,15 @@
 {
   "name": "address-emoji-checksum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate emoji checksums from blockchain addressses",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json,md}'",
+    "check-format": "prettier --check 'src/**/*.{ts,tsx,json,md}'",
     "build": "tsc",
+    "prepare": "npm run lint && npm run format",
     "test": "jest"
   },
   "author": "Valentin Quelquejay",
@@ -18,7 +22,13 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "jest": "^29.7.0",
+    "prettier": "^3.4.2",
     "ts-jest": "^29.2.5"
   }
 }

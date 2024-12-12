@@ -1,9 +1,9 @@
-import { isAddress as isValidETHAddress } from 'validate-ethereum-address';
-import { validate as validateBTCAddress } from 'bitcoin-address-validation';
-import { isAddress as isValidSOLAddress } from '@solana/addresses';
+import { isAddress as isValidETHAddress } from 'validate-ethereum-address'
+import { validate as validateBTCAddress } from 'bitcoin-address-validation'
+import { isAddress as isValidSOLAddress } from '@solana/addresses'
 
 // Define supported networks
-export type Network = 'ETH' | 'BTC' | 'SOL';
+export type Network = 'ETH' | 'BTC' | 'SOL'
 
 /**
  * Validate Ethereum address.
@@ -11,36 +11,33 @@ export type Network = 'ETH' | 'BTC' | 'SOL';
  * @param validateChecksum - Whether to validate the checksum.
  * @returns Whether the address is valid.
  */
-export const validateEthereum = (
-  address: string,
-  validateChecksum: boolean = true
-): boolean => {
+const validateEthereum = (address: string, validateChecksum: boolean = true): boolean => {
   if (!isValidETHAddress(address, false)) {
-    return false; // Invalid Ethereum address
+    return false // Invalid Ethereum address
   }
   if (validateChecksum && !isValidETHAddress(address, true)) {
-    return false; // Invalid checksum
+    return false // Invalid checksum
   }
-  return true;
-};
+  return true
+}
 
 /**
  * Validate Bitcoin address.
  * @param address - The Bitcoin address.
  * @returns Whether the address is valid.
  */
-export const validateBitcoin = (address: string): boolean => {
-  return validateBTCAddress(address);
-};
+const validateBitcoin = (address: string): boolean => {
+  return validateBTCAddress(address)
+}
 
 /**
  * Validate Solana address.
  * @param address - The Solana address.
  * @returns Whether the address is valid.
  */
-export const validateSolana = (address: string): boolean => {
-  return isValidSOLAddress(address);
-};
+const validateSolana = (address: string): boolean => {
+  return isValidSOLAddress(address)
+}
 
 /**
  * Validate an address based on the selected network.
@@ -56,12 +53,12 @@ export const validateAddress = (
 ): boolean => {
   switch (network) {
     case 'ETH':
-      return validateEthereum(address, validateChecksum);
+      return validateEthereum(address, validateChecksum)
     case 'BTC':
-      return validateBitcoin(address);
+      return validateBitcoin(address)
     case 'SOL':
-      return validateSolana(address);
+      return validateSolana(address)
     default:
-      throw new Error(`Unsupported network: ${network}`);
+      throw new Error(`Unsupported network: ${network}`)
   }
-};
+}
