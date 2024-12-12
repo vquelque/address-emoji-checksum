@@ -2,6 +2,7 @@
 
 The **Emoji Checksum Package** provides tools for validating blockchain addresses (Ethereum, Bitcoin, Solana) and generating unique emoji-based checksums for addresses or arbitrary strings. This package is perfect for creating visually distinct representations of blockchain addresses.
 
+[![npm version](https://badge.fury.io/js/address-emoji-checksum.svg)](https://badge.fury.io/js/address-emoji-checksum)
 ---
 
 ## Features
